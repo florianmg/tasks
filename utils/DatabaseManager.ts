@@ -54,14 +54,7 @@ export default class DatabaseManager {
     });
   }
 
-  static async insertTasks(): Promise<IInsertTaskRequest> {
-    const newTask: ITask = {
-      categoryId: 0,
-      content: `Une chose a faire ${Math.random() * 100}`,
-      status: 0,
-      position: 0,
-    };
-
+  static async insertTask(newTask: ITask): Promise<IInsertTaskRequest> {
     try {
       const result = await this.executeQuery(
         "insert into tasks (categoryId, status, content, position) values (?, ?, ?, ?)",
