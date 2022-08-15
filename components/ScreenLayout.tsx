@@ -12,7 +12,6 @@ const ScreenLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
     flex: 1,
     padding: 20,
   },

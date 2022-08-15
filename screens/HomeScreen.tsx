@@ -1,54 +1,19 @@
-import { View, StyleSheet, Button } from "react-native";
+import { StyleSheet } from "react-native";
 
-import DatabaseManager from "../utils/DatabaseManager";
+import SubTitle from "../components/SubTitle";
+import Title from "../components/Title";
 
 import ScreenLayout from "../components/ScreenLayout";
 
 const HomeScreen: React.FC = () => {
   return (
     <ScreenLayout>
-      <Button
-        title="Ajouter tache"
-        onPress={async () => {
-          const { result, isError, error, newTask } =
-            await DatabaseManager.insertTasks();
-          if (!isError) {
-            console.log("> new task inserted: ", newTask);
-          }
-        }}
-      />
-      <Button
-        title="Récupère toutes les taches"
-        onPress={async () => {
-          const { result, isError, error } =
-            await DatabaseManager.getAlltasks();
-          if (result && !isError) {
-            console.log("> all tasks: ", result.rows._array);
-          } else {
-            console.log("error", error);
-          }
-        }}
-      />
-      <Button
-        title="Supprimer toutes les taches"
-        onPress={async () => {
-          const { isError, error, result } =
-            await DatabaseManager.deleteAllTasks();
-          if (!isError) {
-            console.log("> delete al tasks", result);
-          }
-        }}
-      />
+      <Title title="Salut 👋" />
+      <SubTitle title="Qu'allez vous faire aujourd'hui ?" />
     </ScreenLayout>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+const styles = StyleSheet.create({});
 
 export default HomeScreen;
