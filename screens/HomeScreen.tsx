@@ -1,8 +1,12 @@
 import { View, StyleSheet, Button } from "react-native";
+
 import DatabaseManager from "../utils/DatabaseManager";
+
+import ScreenLayout from "../components/ScreenLayout";
+
 const HomeScreen: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <ScreenLayout>
       <Button
         title="Ajouter tache"
         onPress={async () => {
@@ -35,7 +39,7 @@ const HomeScreen: React.FC = () => {
           }
         }}
       />
-    </View>
+    </ScreenLayout>
   );
 };
 
